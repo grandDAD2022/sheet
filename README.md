@@ -5,7 +5,7 @@ Se podrá iniciar sesión con cuentas de otras redes sociales,
 así como seguir a usuarios que se unan, ver sus publicaciones y comentar en ellas.
 
 ## Instalación
-Para inicializar un servidor con, se han de realizar los siguientes pasos:
+Para inicializar un servidor Sheet, se han de realizar los siguientes pasos:
 
 - Instalar las siguientes dependencias en cada entorno Linux usado:
     - Java 17 LTS o superior
