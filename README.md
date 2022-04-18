@@ -10,7 +10,7 @@ Para inicializar un servidor Sheet, se han de realizar los siguientes pasos:
 - Instalar las siguientes dependencias en cada entorno Linux usado:
     - Java 17 LTS o superior
     - MySQL o MariaDB
-    - Maven y Git (opcional, para compilación así como despliegue directo de repositorio)
+    - Maven y Git (solo para compilación así como despliegue directo de repositorio)
 
 - Obtener el código fuente, sea o en entorno de desarrollo o en producción: `git clone --recurse-submodules https://github.com/grandDAD2022/sheet`
 
