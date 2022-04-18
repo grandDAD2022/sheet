@@ -1,3 +1,6 @@
 [submodule "sheet-ui"]
 	path = sheet-ui
 	url = https://github.com/grandDAD2022/sheet-ui
+[submodule "sheet-media"]
+	path = sheet-media
+	url = https://github.com/grandDAD2022/sheet-media
