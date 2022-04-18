@@ -4,6 +4,45 @@ Sheet es una red social que permite a sus usuarios centralizar las publicaciones
 Se podrá iniciar sesión con cuentas de otras redes sociales,
 así como seguir a usuarios que se unan, ver sus publicaciones y comentar en ellas.
 
+## Instalación
+Para inicializar un servidor con, se han de realizar los siguientes pasos:
+
+- Instalar las siguientes dependencias en cada entorno Linux usado:
+    - Java 17 LTS o superior
+    - MySQL o MariaDB
+    - Maven y Git (opcional, para compilación así como despliegue directo de repositorio)
+
+- Obtener el código fuente, sea o en entorno de desarrollo o en producción: `git clone --recurse-submodules https://github.com/grandDAD2022/sheet`
+
+- Inicializar la base de datos para la aplicación web en el entorno Linux correspondiente:
+
+```sql
+CREATE DATABASE sheet;
+GRANT ALL ON sheet.* TO 'sheet'@'localhost' IDENTIFIED BY 'sheet';
+GRANT ALL ON sheet.* TO 'sheet'@'localhost.localdomain' IDENTIFIED BY 'sheet';
+FLUSH PRIVILEGES;
+```
+
+- Inicializar la base de datos para el object storage en el entorno Linux correspondiente:
+
+```sql
+CREATE DATABASE sheet_media;
+GRANT ALL ON sheet_media.* TO 'sheet_media'@'localhost' IDENTIFIED BY 'sheet_media';
+GRANT ALL ON sheet_media.* TO 'sheet_media'@'localhost.localdomain' IDENTIFIED BY 'sheet_media';
+FLUSH PRIVILEGES;
+```
+
+- Desplegar los servicios web uno a uno
+    - Para despliegue estable, generando JARs
+      - `mvn install` (retorna una ruta con el JAR a desplegar)
+      - `java -jar <archivo .jar>` para ejecutar el servicio web
+    - Para despliegue directo, mediante Spring Boot
+      - `mvn spring-boot:run` para ejecutar directamente el servicio web
+
+- Adicionalmente, se recomienda:
+    - Crear unidades Systemd, servicios OpenRC o equivalentes para mantener la ejecución automáticamente
+    - Usar un firewall para bloquear todos los puertos salvo el que expone la aplicación web
+
 ## Funcionalidad
 - Pública
     - Acceso a perfiles públicos
@@ -45,10 +84,8 @@ así como seguir a usuarios que se unan, ver sus publicaciones y comentar en ell
     - Los usuario recibiran varias publicaciones, además, existirán notificaciones del sistema que serán recibidas por todos los usuarios.
 
 ## Servicios web
-- Interfaz de usuario
-- Publicaciones
-- Obtención de muro
-- Almacenamiento de datos
+- [Aplicación web](https://github.com/grandDAD2022/sheet-ui)
+- [Object storage multimedia](https://github.com/grandDAD2022/sheet-media)
 
 ## Servicios internos
 - Autenticación
