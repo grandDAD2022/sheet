@@ -1,6 +1,6 @@
 # Sheet
 
-Sheet es una red social que permite a sus usuarios centralizar las publicaciones de sus redes en una sola.
+Sheet es una red social que permite a sus usuarios compartir sus publicaciones y unirse a comunidades.
 Se podrá iniciar sesión con cuentas de otras redes sociales,
 así como seguir a usuarios que se unan, ver sus publicaciones y comentar en ellas.
 
@@ -61,9 +61,13 @@ FLUSH PRIVILEGES;
 - Notificaciones
 - Comunidades
 
-## Diagrama de clases UML
+## Diagrama de clases UML de sheet ui
 
-![Diagrama UML](img/diagramaUML.png)
+![Diagrama UML](img/diagramaUML.svg)
+
+## Diagrama de clases UML de sheet media
+
+![Diagrama UML](img/UML_SheetMEDIA.png)
 
 ## Modelo Entidad/Relación
 
