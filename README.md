@@ -1,8 +1,7 @@
 # Sheet
 
 Sheet es una red social que permite a sus usuarios compartir sus publicaciones y unirse a comunidades.
-Se podrá iniciar sesión con cuentas de otras redes sociales,
-así como seguir a usuarios que se unan, ver sus publicaciones y comentar en ellas.
+Se podrá iniciar sesión con tu cuenta, seguir a usuarios que se unan, ver sus publicaciones y comentar en ellas.
 
 ## Instalación
 Para inicializar un servidor Sheet, se han de realizar los siguientes pasos:
