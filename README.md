@@ -33,7 +33,7 @@ FLUSH PRIVILEGES;
 
 - Desplegar los servicios web uno a uno
     - Para despliegue estable, generando JARs
-      - `mvn install` (retorna una ruta con el JAR a desplegar)
+      - `mvn package` (retorna una ruta con el JAR a desplegar)
       - `java -jar <archivo .jar>` para ejecutar el servicio web
     - Para despliegue directo, mediante Spring Boot
       - `mvn spring-boot:run` para ejecutar directamente el servicio web
