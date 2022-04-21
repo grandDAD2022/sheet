@@ -17,8 +17,10 @@ Para inicializar un servidor Sheet, se han de realizar los siguientes pasos:
 
 ```sql
 CREATE DATABASE sheet;
-GRANT ALL ON sheet.* TO 'sheet'@'localhost' IDENTIFIED BY 'sheet';
-GRANT ALL ON sheet.* TO 'sheet'@'localhost.localdomain' IDENTIFIED BY 'sheet';
+CREATE USER 'sheet'@'localhost' IDENTIFIED BY 'sheet';
+GRANT ALL ON sheet.* TO 'sheet'@'localhost';
+CREATE USER 'sheet'@'localhost.localdomain' IDENTIFIED BY 'sheet';
+GRANT ALL ON sheet.* TO 'sheet'@'localhost.localdomain';
 FLUSH PRIVILEGES;
 ```
 
@@ -26,10 +28,10 @@ FLUSH PRIVILEGES;
 
 ```sql
 CREATE DATABASE sheet_media;
-CREATE USER 'sheet'@'localhost' IDENTIFIED BY 'sheet';
-GRANT ALL ON sheet.* TO 'sheet'@'localhost';
-CREATE USER 'sheet'@'localhost.localdomain' IDENTIFIED BY 'sheet';
-GRANT ALL ON sheet.* TO 'sheet'@'localhost.localdomain';
+CREATE USER 'sheet_media'@'localhost' IDENTIFIED BY 'sheet_media';
+GRANT ALL ON sheet_media.* TO 'sheet_media'@'localhost';
+CREATE USER 'sheet_media'@'localhost.localdomain' IDENTIFIED BY 'sheet_media';
+GRANT ALL ON sheet_media.* TO 'sheet_media'@'localhost.localdomain';
 FLUSH PRIVILEGES;
 ```
 
