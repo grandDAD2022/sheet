@@ -26,8 +26,10 @@ FLUSH PRIVILEGES;
 
 ```sql
 CREATE DATABASE sheet_media;
-GRANT ALL ON sheet_media.* TO 'sheet_media'@'localhost' IDENTIFIED BY 'sheet_media';
-GRANT ALL ON sheet_media.* TO 'sheet_media'@'localhost.localdomain' IDENTIFIED BY 'sheet_media';
+CREATE USER 'sheet'@'localhost' IDENTIFIED BY 'sheet';
+GRANT ALL ON sheet.* TO 'sheet'@'localhost';
+CREATE USER 'sheet'@'localhost.localdomain' IDENTIFIED BY 'sheet';
+GRANT ALL ON sheet.* TO 'sheet'@'localhost.localdomain';
 FLUSH PRIVILEGES;
 ```
 
@@ -88,9 +90,9 @@ FLUSH PRIVILEGES;
 
 ## Servicios web
 - [Aplicación web](https://github.com/grandDAD2022/sheet-ui)
-- [Object storage multimedia](https://github.com/grandDAD2022/sheet-media)
 
 ## Servicios internos
+- [Object storage multimedia](https://github.com/grandDAD2022/sheet-media)
 - Autenticación
 - Notificaciones
 - Envío de correo
