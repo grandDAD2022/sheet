@@ -4,7 +4,23 @@ Sheet es una red social que permite a sus usuarios compartir sus publicaciones y
 Se podrá iniciar sesión con tu cuenta, seguir a usuarios que se unan, ver sus publicaciones y comentar en ellas.
 
 ## Instalación
-Para inicializar un servidor Sheet, se han de realizar los siguientes pasos:
+
+Sheet puede instalarse mediante dos métodos: o automatizado mediante Docker Compose, o manual.
+
+### Docker Compose
+
+En un entorno con Git y Docker Compose instalados, basta con asegurarse de que el puerto 8080 está libre
+y ejecutar lo siguiente:
+
+```sh
+git clone --recurse-submodules https://github.com/grandDAD2022/sheet
+cd sheet
+docker-compose up
+```
+
+### Manual
+
+Para inicializar un servidor Sheet manualmente, se han de realizar los siguientes pasos:
 
 - Instalar las siguientes dependencias en cada entorno Linux usado:
     - Java 17 LTS o superior
@@ -19,8 +35,6 @@ Para inicializar un servidor Sheet, se han de realizar los siguientes pasos:
 CREATE DATABASE sheet;
 CREATE USER 'sheet'@'localhost' IDENTIFIED BY 'sheet';
 GRANT ALL ON sheet.* TO 'sheet'@'localhost';
-CREATE USER 'sheet'@'localhost.localdomain' IDENTIFIED BY 'sheet';
-GRANT ALL ON sheet.* TO 'sheet'@'localhost.localdomain';
 FLUSH PRIVILEGES;
 ```
 
@@ -30,8 +44,6 @@ FLUSH PRIVILEGES;
 CREATE DATABASE sheet_media;
 CREATE USER 'sheet_media'@'localhost' IDENTIFIED BY 'sheet_media';
 GRANT ALL ON sheet_media.* TO 'sheet_media'@'localhost';
-CREATE USER 'sheet_media'@'localhost.localdomain' IDENTIFIED BY 'sheet_media';
-GRANT ALL ON sheet_media.* TO 'sheet_media'@'localhost.localdomain';
 FLUSH PRIVILEGES;
 ```
 

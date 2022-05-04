@@ -1,0 +1,48 @@
+version: "3.9"
+services:
+    sheet-ui:
+        build:
+            context: ./sheet-ui
+            args:
+                - BUILD_VARS="-Dmaven.test.skip=true"
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:mysql://ui-db:3306/sheet
+            - SHEET_MEDIA_URL=http://sheet-media:42069
+        depends_on:
+            - ui-db
+            - sheet-media
+        restart: always
+        ports:
+            - "8080:8080"
+    sheet-media:
+        build:
+            context: ./sheet-media
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:mysql://media-db:3307/sheet_media
+        depends_on:
+            - media-db
+        restart: always
+        expose:
+            - "42069"
+    ui-db:
+        image: mariadb:latest
+        environment:
+            - MYSQL_DATABASE=sheet
+            - MYSQL_USER=sheet
+            - MYSQL_PASSWORD=sheet
+            - MYSQL_RANDOM_ROOT_PASSWORD=y
+            - MYSQL_TCP_PORT=3306
+        restart: always
+        expose:
+            - "3306"
+    media-db:
+        image: mariadb:latest
+        environment:
+            - MYSQL_DATABASE=sheet_media
+            - MYSQL_USER=sheet_media
+            - MYSQL_PASSWORD=sheet_media
+            - MYSQL_RANDOM_ROOT_PASSWORD=y
+            - MYSQL_TCP_PORT=3307
+        restart: always
+        expose:
+            - "3307"
