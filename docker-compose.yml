@@ -1,6 +1,18 @@
 version: "3.9"
 services:
-    sheet-ui:
+    nginx:
+        build:
+            context: ./nginx
+        volumes:
+            - ./nginx/sheet.conf:/etc/nginx/nginx.conf:ro
+        depends_on:
+            - sheet-ui-1
+            - sheet-ui-2
+        restart: always
+        ports:
+            - "80:80"
+            - "443:80"
+    sheet-ui-1:
         build:
             context: ./sheet-ui
             args:
@@ -12,8 +24,22 @@ services:
             - ui-db
             - sheet-media
         restart: always
-        ports:
-            - "8080:8080"
+        expose:
+            - "8080"
+    sheet-ui-2:
+        build:
+            context: ./sheet-ui
+            args:
+                - BUILD_VARS="-Dmaven.test.skip=true"
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:mysql://ui-db:3306/sheet
+            - SHEET_MEDIA_URL=http://sheet-media:42069
+        depends_on:
+            - ui-db
+            - sheet-media
+        restart: always
+        expose:
+            - "8080"
     sheet-media:
         build:
             context: ./sheet-media
