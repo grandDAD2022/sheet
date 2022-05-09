@@ -13,7 +13,7 @@ En un entorno con Git y Docker Compose instalados, basta con realizar los siguie
 
 - Asegurarse de que los puertos 80 y 443 estén libres
 - Copiar el certificado SSL a `nginx/cert.{crt,key}`
-    - Si vas a ejecutar Sheet solo localmente, puedes generar uno autofirmado con el siguiente comando
+    - Si el servidor es para una red local, puede generarse un certificado autofirmado con el siguiente comando:
 
 ```sh
 openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes \
@@ -21,7 +21,7 @@ openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes \
     -addext "subjectAltName=DNS:localhost,IP:127.0.0.1"
 ```
 
-3. Ejecutar lo siguiente:
+- Ejecutar lo siguiente:
 
 ```sh
 git clone --recurse-submodules https://github.com/grandDAD2022/sheet

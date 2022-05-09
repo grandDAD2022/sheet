@@ -28,7 +28,6 @@ services:
         restart: always
         expose:
             - "8080"
-            - "5701"
     sheet-ui-2:
         build:
             context: ./sheet-ui
@@ -43,7 +42,6 @@ services:
         restart: always
         expose:
             - "8080"
-            - "5701"
     sheet-media:
         build:
             context: ./sheet-media
