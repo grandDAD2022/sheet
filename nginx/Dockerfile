@@ -1,3 +1,6 @@
+# syntax=docker/dockerfile:1
+# Nginx Docker for `sheet`
+
 FROM alpine
 
 RUN apk update && \

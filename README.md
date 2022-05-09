@@ -9,7 +9,7 @@ Sheet puede instalarse mediante dos métodos: o automatizado mediante Docker Com
 
 ### Docker Compose
 
-En un entorno con Git y Docker Compose instalados, basta con asegurarse de que el puerto 8080 está libre
+En un entorno con Git y Docker Compose instalados, basta con asegurarse de que los puertos 80 y 443 estén libres
 y ejecutar lo siguiente:
 
 ```sh
