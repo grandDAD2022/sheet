@@ -9,8 +9,19 @@ Sheet puede instalarse mediante dos métodos: o automatizado mediante Docker Com
 
 ### Docker Compose
 
-En un entorno con Git y Docker Compose instalados, basta con asegurarse de que los puertos 80 y 443 estén libres
-y ejecutar lo siguiente:
+En un entorno con Git y Docker Compose instalados, basta con realizar los siguientes pasos:
+
+- Asegurarse de que los puertos 80 y 443 estén libres
+- Copiar el certificado SSL a `nginx/cert.{crt,key}`
+    - Si vas a ejecutar Sheet solo localmente, puedes generar uno autofirmado con el siguiente comando
+
+```sh
+openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes \
+    -keyout nginx/cert.key -out nginx/cert.crt -subj "/CN=localhost" \
+    -addext "subjectAltName=DNS:localhost,IP:127.0.0.1"
+```
+
+3. Ejecutar lo siguiente:
 
 ```sh
 git clone --recurse-submodules https://github.com/grandDAD2022/sheet

@@ -5,6 +5,8 @@ services:
             context: ./nginx
         volumes:
             - ./nginx/sheet.conf:/etc/nginx/nginx.conf:ro
+            - ./nginx/cert.crt:/etc/nginx/cert.crt:ro
+            - ./nginx/cert.key:/etc/nginx/cert.key:ro
         depends_on:
             - sheet-ui-1
             - sheet-ui-2
@@ -26,6 +28,7 @@ services:
         restart: always
         expose:
             - "8080"
+            - "5701"
     sheet-ui-2:
         build:
             context: ./sheet-ui
@@ -40,6 +43,7 @@ services:
         restart: always
         expose:
             - "8080"
+            - "5701"
     sheet-media:
         build:
             context: ./sheet-media
