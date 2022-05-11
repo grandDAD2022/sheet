@@ -75,7 +75,6 @@ FLUSH PRIVILEGES;
     - Registro de cuenta nueva
 - Privada
     - Administrar perfil
-    - Seguir cuentas
     - Ver publicaciones
     - Crear publicaciones
     - Comentar
@@ -119,10 +118,7 @@ FLUSH PRIVILEGES;
 ## Servicios internos
 - [Object storage multimedia](https://github.com/grandDAD2022/sheet-media)
 - Autenticación
-- Notificaciones
-- Envío de correo
 - Escalado de imágenes
-- Compresión de vídeo
 
 ## Páginas
 
@@ -154,3 +150,7 @@ Permite tanto insertar credenciales para una cuenta existente, como solicitar re
 
 Si no se dispone de cuenta de usuario, basta con rellenar los datos del formulario de registro
 para ponerse en marcha.
+
+### Video
+
+[![Alt text](https://img.youtube.com/vi/sjYVSUysqp0/0.jpg)](https://www.youtube.com/watch?v=sjYVSUysqp0)
